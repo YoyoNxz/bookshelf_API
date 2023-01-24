@@ -1,6 +1,6 @@
 const {
   addBookHandler,
-  getBooksHandler,
+  getAllBooksHandler,
   getBookByIdHandler,
   editBookByIdHandler,
   deleteBookByIdHandler,
@@ -15,22 +15,27 @@ const routes = [
   {
     method: 'GET',
     path: '/books',
-    handler: getBooksHandler,
+    handler: getAllBooksHandler,
   },
   {
     method: 'GET',
-    path: '/books/{id}',
+    path: '/books/{bookId}',
     handler: getBookByIdHandler,
   },
   {
     method: 'PUT',
-    path: '/books/{id}',
+    path: '/books/{bookId}',
     handler: editBookByIdHandler,
   },
   {
     method: 'DELETE',
-    path: '/books/{id}',
+    path: '/books/{bookId}',
     handler: deleteBookByIdHandler,
+  },
+  {
+    method: '*',
+    path: '/{any*}',
+    handler: () => 'Halaman tidak ditemukan',
   },
 ];
 
